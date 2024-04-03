@@ -1,9 +1,13 @@
 import { NewPasswordForm } from "@/components/auth/new-password-form";
+import LoadingModal from "@/components/chat/LoadingModal";
+import { Suspense } from "react";
 
 const NewPasswordPage = () => {
   return (
     <div>
-      <NewPasswordForm />
+      <Suspense fallback={<LoadingModal />}>
+        <NewPasswordForm />
+      </Suspense>
     </div>
   );
 };

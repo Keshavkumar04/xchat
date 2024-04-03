@@ -51,42 +51,40 @@ export const NewPasswordForm = () => {
   };
 
   return (
-    <Suspense fallback={<LoadingModal />}>
-      <CardWrapper
-        headerLabel="Enter a new password"
-        backButtonLabel="Back to login"
-        backButtonHref="/login"
-      >
-        <Form {...form}>
-          <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-            <div className="space-y-4">
-              <FormField
-                control={form.control}
-                name="password"
-                render={({ field }) => (
-                  <FormItem>
-                    <FormLabel>Password</FormLabel>
-                    <FormControl>
-                      <Input
-                        {...field}
-                        disabled={isPending}
-                        placeholder="******"
-                        type="password"
-                      />
-                    </FormControl>
-                    <FormMessage />
-                  </FormItem>
-                )}
-              />
-            </div>
-            <FormError message={error} />
-            <FormSuccess message={success} />
-            <Button disabled={isPending} type="submit" className="w-full">
-              Reset password
-            </Button>
-          </form>
-        </Form>
-      </CardWrapper>
-    </Suspense>
+    <CardWrapper
+      headerLabel="Enter a new password"
+      backButtonLabel="Back to login"
+      backButtonHref="/login"
+    >
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+          <div className="space-y-4">
+            <FormField
+              control={form.control}
+              name="password"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Password</FormLabel>
+                  <FormControl>
+                    <Input
+                      {...field}
+                      disabled={isPending}
+                      placeholder="******"
+                      type="password"
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </div>
+          <FormError message={error} />
+          <FormSuccess message={success} />
+          <Button disabled={isPending} type="submit" className="w-full">
+            Reset password
+          </Button>
+        </form>
+      </Form>
+    </CardWrapper>
   );
 };

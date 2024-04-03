@@ -41,7 +41,6 @@ export const NewVerificationForm = () => {
   }, [onSubmit]);
 
   return (
-    <Suspense fallback={<LoadingModal />}>
       <CardWrapper
         headerLabel="Confirming your verification"
         backButtonLabel="Back to login"
@@ -53,6 +52,5 @@ export const NewVerificationForm = () => {
           {!success && <FormError message={error} />}
         </div>
       </CardWrapper>
-    </Suspense>
   );
 };
